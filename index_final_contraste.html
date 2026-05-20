@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Café Origen Selecto | Exportación de Café Colombiano</title>
+
+  <meta name="description" content="Landing page profesional para exportación de café colombiano de alta calidad, trazabilidad, origen selecto y conexión directa con compradores internacionales." />
+  <meta property="og:title" content="Café Origen Selecto | Exportación de Café Colombiano" />
+  <meta property="og:description" content="Conectamos café colombiano de especialidad con mercados internacionales mediante calidad, trazabilidad y gestión exportadora profesional." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            coffee: {
+              50: '#fbf7f2',
+              100: '#f3e7d8',
+              200: '#e6c9a7',
+              300: '#d7a670',
+              400: '#c47f3a',
+              500: '#9a5a23',
+              600: '#7a431a',
+              700: '#5f3218',
+              800: '#3e2113',
+              900: '#24130c'
+            },
+            leaf: {
+              400: '#7fb069',
+              500: '#5f8f47',
+              600: '#436b32'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      color-scheme: light;
+    }
+
+    .dark {
+      color-scheme: dark;
+    }
+
+    .glass {
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .fade-section {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 800ms ease, transform 800ms ease;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-pattern {
+      background-image:
+        radial-gradient(circle at 15% 25%, rgba(196, 127, 58, 0.20), transparent 32%),
+        radial-gradient(circle at 85% 10%, rgba(95, 143, 71, 0.22), transparent 34%),
+        radial-gradient(circle at 75% 85%, rgba(122, 67, 26, 0.18), transparent 36%);
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 350ms ease;
+    }
+
+    /* Refuerzo de contraste para modo claro.
+       Evita que textos principales queden blancos cuando se alterna desde modo oscuro. */
+    html:not(.dark) body {
+      background-color: #fbf7f2 !important;
+      color: #24130c !important;
+    }
+
+    html:not(.dark) .text-coffee-900 { color: #24130c !important; }
+    html:not(.dark) .text-coffee-800 { color: #3e2113 !important; }
+    html:not(.dark) .text-coffee-700 { color: #5f3218 !important; }
+    html:not(.dark) .text-coffee-600 { color: #7a431a !important; }
+    html:not(.dark) .text-coffee-500 { color: #9a5a23 !important; }
+
+    html:not(.dark) #inicio h1,
+    html:not(.dark) #beneficios h2,
+    html:not(.dark) #beneficios h3,
+    html:not(.dark) #proyecto > div > div:last-child h2,
+    html:not(.dark) #faq h2,
+    html:not(.dark) .faq-button span:first-child {
+      color: #24130c !important;
+    }
+
+    html:not(.dark) #inicio p,
+    html:not(.dark) #beneficios p,
+    html:not(.dark) #proyecto > div > div:last-child p,
+    html:not(.dark) #faq p,
+    html:not(.dark) #beneficios article p,
+    html:not(.dark) .faq-content p {
+      color: #5f3218 !important;
+    }
+
+    html:not(.dark) header,
+    html:not(.dark) header a,
+    html:not(.dark) header span:not(.text-xl) {
+      color: #24130c;
+    }
+
+    html:not(.dark) footer,
+    html:not(.dark) footer p,
+    html:not(.dark) footer a {
+      color: #fbf7f2 !important;
+    }
+
+    html:not(.dark) footer .text-coffee-200,
+    html:not(.dark) footer .text-coffee-300 {
+      color: #e6c9a7 !important;
+    }
+
+    html:not(.dark) #inicio .bg-gradient-to-br,
+    html:not(.dark) #inicio .bg-gradient-to-br *,
+    html:not(.dark) #proyecto .bg-gradient-to-br,
+    html:not(.dark) #proyecto .bg-gradient-to-br * {
+      color: #ffffff !important;
+    }
+
+    html:not(.dark) #inicio .bg-gradient-to-br .text-coffee-100,
+    html:not(.dark) #proyecto .bg-gradient-to-br .text-coffee-100,
+    html:not(.dark) #proyecto .bg-gradient-to-br .text-coffee-50 {
+      color: #f3e7d8 !important;
+    }
+
+    html:not(.dark) a.bg-coffee-700,
+    html:not(.dark) a.bg-\[\#25D366\] {
+      color: #ffffff !important;
+    }
+
+
+    /* Corrección robusta de contraste para la sección Proyecto / Sobre nosotros */
+    #proyecto {
+      background: linear-gradient(180deg, #fffaf5 0%, #f3e7d8 100%) !important;
+      color: #24130c !important;
+    }
+
+    #proyecto > div > div:first-child > div {
+      background: linear-gradient(135deg, #5f3218 0%, #7a431a 48%, #436b32 100%) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+    }
+
+    #proyecto > div > div:first-child > div,
+    #proyecto > div > div:first-child > div h2,
+    #proyecto > div > div:first-child > div p,
+    #proyecto > div > div:first-child > div span {
+      color: #ffffff !important;
+    }
+
+    #proyecto > div > div:first-child > div p {
+      color: #f3e7d8 !important;
+    }
+
+    #proyecto > div > div:first-child > div .bg-white\/12 {
+      background-color: rgba(255, 255, 255, 0.16) !important;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    #proyecto > div > div:last-child {
+      background: rgba(255, 255, 255, 0.86) !important;
+      border: 1px solid #e6c9a7 !important;
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: 0 24px 60px rgba(36, 19, 12, 0.08);
+    }
+
+    #proyecto > div > div:last-child span {
+      color: #7a431a !important;
+    }
+
+    #proyecto > div > div:last-child h2 {
+      color: #24130c !important;
+    }
+
+    #proyecto > div > div:last-child p {
+      color: #5f3218 !important;
+    }
+
+    .dark #proyecto {
+      background: linear-gradient(180deg, #24130c 0%, #3e2113 100%) !important;
+      color: #fbf7f2 !important;
+    }
+
+    .dark #proyecto > div > div:first-child > div {
+      background: linear-gradient(135deg, #2b170e 0%, #5f3218 48%, #2f4f25 100%) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .dark #proyecto > div > div:first-child > div,
+    .dark #proyecto > div > div:first-child > div h2,
+    .dark #proyecto > div > div:first-child > div p,
+    .dark #proyecto > div > div:first-child > div span {
+      color: #ffffff !important;
+    }
+
+    .dark #proyecto > div > div:first-child > div p {
+      color: #f3e7d8 !important;
+    }
+
+    .dark #proyecto > div > div:last-child {
+      background: rgba(255, 255, 255, 0.09) !important;
+      border: 1px solid rgba(255, 255, 255, 0.18) !important;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .dark #proyecto > div > div:last-child span {
+      color: #d7a670 !important;
+    }
+
+    .dark #proyecto > div > div:last-child h2 {
+      color: #ffffff !important;
+    }
+
+    .dark #proyecto > div > div:last-child p {
+      color: #f3e7d8 !important;
+    }
+
+
+    /* Corrección integral de contraste para hero, tarjeta de perfil exportador, CTA y footer */
+    html:not(.dark) #inicio {
+      color: #24130c !important;
+    }
+
+    html:not(.dark) #inicio h1 {
+      color: #24130c !important;
+    }
+
+    html:not(.dark) #inicio p {
+      color: #5f3218 !important;
+    }
+
+    html:not(.dark) #inicio a[href^="https://wa.me"] {
+      background-color: #5f3218 !important;
+      color: #ffffff !important;
+      border-color: #5f3218 !important;
+    }
+
+    html:not(.dark) #inicio a[href="#beneficios"] {
+      background-color: #ffffff !important;
+      color: #3e2113 !important;
+      border-color: #d7a670 !important;
+    }
+
+    html:not(.dark) #inicio .origin-card,
+    html:not(.dark) #inicio .origin-card * {
+      color: #ffffff !important;
+    }
+
+    html:not(.dark) #inicio .origin-card {
+      background: linear-gradient(135deg, #3e2113 0%, #5f3218 48%, #436b32 100%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.28) !important;
+      box-shadow: 0 30px 80px rgba(36, 19, 12, 0.28) !important;
+    }
+
+    html:not(.dark) #inicio .origin-card p,
+    html:not(.dark) #inicio .origin-card .text-coffee-100 {
+      color: #f3e7d8 !important;
+    }
+
+    html:not(.dark) #inicio .origin-card .metric-card {
+      background-color: rgba(255, 255, 255, 0.16) !important;
+      border: 1px solid rgba(255, 255, 255, 0.20) !important;
+    }
+
+    html:not(.dark) #inicio .origin-card .origin-pill {
+      background-color: rgba(255, 255, 255, 0.18) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.20);
+    }
+
+    html:not(.dark) footer {
+      background: #24130c !important;
+      color: #ffffff !important;
+      border-color: rgba(230, 201, 167, 0.25) !important;
+    }
+
+    html:not(.dark) footer *,
+    html:not(.dark) footer a,
+    html:not(.dark) footer p {
+      color: #ffffff !important;
+    }
+
+    html:not(.dark) footer .footer-muted {
+      color: #e6c9a7 !important;
+    }
+
+    html:not(.dark) footer .footer-logo {
+      background-color: #c47f3a !important;
+      color: #24130c !important;
+    }
+
+    .dark #inicio .origin-card,
+    .dark #inicio .origin-card * {
+      color: #ffffff !important;
+    }
+
+    .dark #inicio .origin-card {
+      background: linear-gradient(135deg, #2b170e 0%, #5f3218 48%, #2f4f25 100%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    }
+
+    .dark #inicio .origin-card p,
+    .dark #inicio .origin-card .text-coffee-100 {
+      color: #f3e7d8 !important;
+    }
+
+    .dark #inicio .origin-card .metric-card {
+      background-color: rgba(255, 255, 255, 0.14) !important;
+      border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    }
+
+    .dark footer {
+      background: #120905 !important;
+      color: #ffffff !important;
+    }
+
+    .dark footer *,
+    .dark footer a,
+    .dark footer p {
+      color: #ffffff !important;
+    }
+
+    .dark footer .footer-muted {
+      color: #e6c9a7 !important;
+    }
+
+  </style>
+
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+
+<body class="bg-coffee-50 text-coffee-900 antialiased transition-colors duration-300 dark:bg-coffee-900 dark:text-coffee-50">
+  <header class="fixed left-0 top-0 z-50 w-full border-b border-coffee-200/70 bg-coffee-50/85 glass transition-colors duration-300 dark:border-white/10 dark:bg-coffee-900/80">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+      <a href="#inicio" class="flex items-center gap-3" aria-label="Ir al inicio">
+        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-coffee-700 text-xl shadow-lg shadow-coffee-900/20 dark:bg-coffee-400">☕</span>
+        <span class="leading-tight">
+          <span class="block text-lg font-black tracking-tight">Café Origen Selecto</span>
+          <span class="block text-xs font-medium uppercase tracking-[0.28em] text-coffee-600 dark:text-coffee-200">Exportación premium</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-8 text-sm font-semibold text-coffee-700 dark:text-coffee-100 md:flex">
+        <a href="#beneficios" class="transition hover:text-coffee-500 dark:hover:text-coffee-300">Beneficios</a>
+        <a href="#proyecto" class="transition hover:text-coffee-500 dark:hover:text-coffee-300">Proyecto</a>
+        <a href="#faq" class="transition hover:text-coffee-500 dark:hover:text-coffee-300">FAQ</a>
+        <a href="#contacto" class="transition hover:text-coffee-500 dark:hover:text-coffee-300">Contacto</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button id="themeToggle" class="rounded-full border border-coffee-300 bg-white px-4 py-2 text-sm font-bold text-coffee-800 shadow-sm transition hover:-translate-y-0.5 hover:border-coffee-500 hover:shadow-md dark:border-white/15 dark:bg-white/10 dark:text-white dark:hover:border-coffee-300" aria-label="Cambiar tema claro u oscuro">
+          <span id="themeIcon">🌙</span><span id="themeText" class="ml-2 hidden sm:inline">Modo oscuro</span>
+        </button>
+
+        <button id="mobileMenuButton" class="rounded-full border border-coffee-300 bg-white p-2.5 text-coffee-800 shadow-sm transition hover:border-coffee-500 dark:border-white/15 dark:bg-white/10 dark:text-white md:hidden" aria-label="Abrir menú">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <nav id="mobileMenu" class="hidden border-t border-coffee-200 bg-coffee-50 px-5 py-4 text-sm font-semibold text-coffee-800 dark:border-white/10 dark:bg-coffee-900 dark:text-coffee-100 md:hidden">
+      <div class="mx-auto flex max-w-7xl flex-col gap-4">
+        <a href="#beneficios" class="mobile-link">Beneficios</a>
+        <a href="#proyecto" class="mobile-link">Proyecto</a>
+        <a href="#faq" class="mobile-link">FAQ</a>
+        <a href="#contacto" class="mobile-link">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero-pattern relative overflow-hidden px-5 pb-24 pt-36 lg:px-8 lg:pb-32 lg:pt-44">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-br from-coffee-50 via-coffee-100 to-white dark:from-coffee-900 dark:via-coffee-800 dark:to-coffee-900"></div>
+
+      <div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
+        <div class="fade-section">
+          <span class="inline-flex items-center rounded-full border border-coffee-300 bg-white/80 px-4 py-2 text-sm font-bold text-coffee-700 shadow-sm dark:border-white/10 dark:bg-white/10 dark:text-coffee-100">
+            Café colombiano con trazabilidad internacional
+          </span>
+
+          <h1 class="mt-7 max-w-4xl text-5xl font-black leading-[1.02] tracking-tight text-coffee-900 dark:text-white sm:text-6xl lg:text-7xl">
+            Exportamos café de origen con calidad, historia y confianza.
+          </h1>
+
+          <p class="mt-7 max-w-2xl text-lg leading-8 text-coffee-700 dark:text-coffee-100 sm:text-xl">
+            Conectamos productores colombianos con compradores internacionales mediante procesos de selección, control de calidad, logística exportadora y acompañamiento comercial especializado.
+          </p>
+
+          <div class="mt-9 flex flex-col gap-4 sm:flex-row">
+            <a href="https://wa.me/573168816578" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-coffee-700 px-8 py-4 text-base font-black text-white shadow-xl shadow-coffee-900/20 transition hover:-translate-y-1 hover:bg-coffee-600 hover:shadow-2xl dark:bg-coffee-400 dark:text-coffee-950 dark:hover:bg-coffee-300">
+              Solicitar propuesta de exportación
+            </a>
+            <a href="#beneficios" class="inline-flex items-center justify-center rounded-full border border-coffee-300 bg-white/80 px-8 py-4 text-base font-black text-coffee-800 shadow-sm transition hover:-translate-y-1 hover:border-coffee-600 hover:bg-white dark:border-white/15 dark:bg-white/10 dark:text-white dark:hover:border-coffee-300">
+              Ver beneficios
+            </a>
+          </div>
+        </div>
+
+        <div class="fade-section relative">
+          <div class="absolute -inset-6 rounded-[3rem] bg-gradient-to-br from-coffee-400/30 to-leaf-500/30 blur-3xl"></div>
+          <div class="relative overflow-hidden rounded-[2.5rem] border border-white/60 bg-white/80 p-6 shadow-2xl shadow-coffee-900/20 glass dark:border-white/10 dark:bg-white/10">
+            <div class="origin-card rounded-[2rem] bg-gradient-to-br from-coffee-800 via-coffee-700 to-leaf-600 p-8 text-white">
+              <div class="flex items-center justify-between">
+                <span class="origin-pill rounded-full bg-white/15 px-4 py-2 text-sm font-bold">Origen Colombia</span>
+                <span class="text-4xl">🌱</span>
+              </div>
+
+              <div class="mt-14">
+                <p class="text-sm font-semibold uppercase tracking-[0.35em] text-coffee-100">Perfil exportador</p>
+                <h2 class="mt-4 text-4xl font-black leading-tight">Café verde, tostado y microlotes seleccionados</h2>
+              </div>
+
+              <div class="mt-10 grid gap-4 sm:grid-cols-3">
+                <div class="metric-card rounded-2xl bg-white/12 p-4">
+                  <p class="text-3xl font-black">84+</p>
+                  <p class="mt-1 text-sm text-coffee-100">Puntaje objetivo</p>
+                </div>
+                <div class="metric-card rounded-2xl bg-white/12 p-4">
+                  <p class="text-3xl font-black">100%</p>
+                  <p class="mt-1 text-sm text-coffee-100">Trazabilidad</p>
+                </div>
+                <div class="metric-card rounded-2xl bg-white/12 p-4">
+                  <p class="text-3xl font-black">B2B</p>
+                  <p class="mt-1 text-sm text-coffee-100">Atención comercial</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios" class="px-5 py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="fade-section mx-auto max-w-3xl text-center">
+          <span class="text-sm font-black uppercase tracking-[0.32em] text-coffee-600 dark:text-coffee-300">Beneficios clave</span>
+          <h2 class="mt-4 text-4xl font-black tracking-tight text-coffee-900 dark:text-white sm:text-5xl">Una operación exportadora pensada para mercados exigentes.</h2>
+          <p class="mt-5 text-lg leading-8 text-coffee-700 dark:text-coffee-100">
+            Integramos calidad sensorial, cumplimiento logístico y comunicación comercial para facilitar relaciones confiables entre origen y comprador.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-3">
+          <article class="fade-section rounded-[2rem] border border-coffee-200 bg-white p-8 shadow-lg shadow-coffee-900/5 transition hover:-translate-y-2 hover:shadow-2xl hover:shadow-coffee-900/10 dark:border-white/10 dark:bg-white/10">
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-coffee-100 text-3xl dark:bg-white/10">🏔️</div>
+            <h3 class="mt-7 text-2xl font-black text-coffee-900 dark:text-white">Origen verificable</h3>
+            <p class="mt-4 leading-7 text-coffee-700 dark:text-coffee-100">
+              Cada lote se presenta con información de procedencia, perfil de taza, proceso y condiciones de producción. Esta trazabilidad fortalece la confianza comercial y mejora la diferenciación en destino.
+            </p>
+          </article>
+
+          <article class="fade-section rounded-[2rem] border border-coffee-200 bg-white p-8 shadow-lg shadow-coffee-900/5 transition hover:-translate-y-2 hover:shadow-2xl hover:shadow-coffee-900/10 dark:border-white/10 dark:bg-white/10">
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-coffee-100 text-3xl dark:bg-white/10">📦</div>
+            <h3 class="mt-7 text-2xl font-black text-coffee-900 dark:text-white">Gestión logística</h3>
+            <p class="mt-4 leading-7 text-coffee-700 dark:text-coffee-100">
+              Coordinamos documentación, empaque, preparación de carga y articulación con aliados logísticos. El proceso se estructura para reducir fricciones y entregar claridad en cada etapa.
+            </p>
+          </article>
+
+          <article class="fade-section rounded-[2rem] border border-coffee-200 bg-white p-8 shadow-lg shadow-coffee-900/5 transition hover:-translate-y-2 hover:shadow-2xl hover:shadow-coffee-900/10 dark:border-white/10 dark:bg-white/10">
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-coffee-100 text-3xl dark:bg-white/10">🤝</div>
+            <h3 class="mt-7 text-2xl font-black text-coffee-900 dark:text-white">Relación comercial directa</h3>
+            <p class="mt-4 leading-7 text-coffee-700 dark:text-coffee-100">
+              Facilitamos conversaciones B2B con compradores, tostadores, distribuidores y marcas interesadas en café colombiano. La negociación se apoya en información técnica y muestras representativas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyecto" class="bg-white px-5 py-24 transition-colors duration-300 dark:bg-coffee-800/40 lg:px-8">
+      <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
+        <div class="fade-section">
+          <div class="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-coffee-700 to-leaf-600 p-8 text-white shadow-2xl shadow-coffee-900/20">
+            <span class="inline-flex rounded-full bg-white/15 px-4 py-2 text-sm font-bold">Proyecto exportador</span>
+            <h2 class="mt-10 text-4xl font-black leading-tight">Del cultivo al mercado internacional con una propuesta clara de valor.</h2>
+            <p class="mt-6 leading-8 text-coffee-50">
+              La exportación de café requiere consistencia, documentación y una narrativa de origen que pueda sostenerse técnicamente. Por ello, se priorizan lotes con perfil definido, control de calidad y comunicación transparente.
+            </p>
+            <div class="mt-10 rounded-3xl bg-white/12 p-6">
+              <p class="text-sm font-semibold uppercase tracking-[0.3em] text-coffee-100">Enfoque</p>
+              <p class="mt-3 text-2xl font-black">Calidad sensorial, trazabilidad y cumplimiento comercial.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-section project-about-panel">
+          <span class="text-sm font-black uppercase tracking-[0.32em] text-coffee-600 dark:text-coffee-300">Sobre nosotros</span>
+          <h2 class="mt-4 text-4xl font-black tracking-tight text-coffee-900 dark:text-white sm:text-5xl">Impulsamos café colombiano para compradores que valoran el origen.</h2>
+          <p class="mt-6 text-lg leading-8 text-coffee-700 dark:text-coffee-100">
+            Café Origen Selecto nace como una plataforma comercial orientada a conectar oferta cafetera colombiana con mercados internacionales. El proyecto combina conocimiento del producto, lectura de necesidades del comprador y estructuración de procesos exportadores que permitan presentar lotes de manera profesional.
+          </p>
+          <p class="mt-5 text-lg leading-8 text-coffee-700 dark:text-coffee-100">
+            Nuestra propuesta se centra en construir relaciones comerciales sostenibles. Para ello, se privilegian la transparencia en la información, la consistencia en la calidad y la capacidad de acompañar al cliente desde la solicitud inicial hasta la coordinación del despacho.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="px-5 py-24 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <div class="fade-section text-center">
+          <span class="text-sm font-black uppercase tracking-[0.32em] text-coffee-600 dark:text-coffee-300">Preguntas frecuentes</span>
+          <h2 class="mt-4 text-4xl font-black tracking-tight text-coffee-900 dark:text-white sm:text-5xl">Información esencial antes de iniciar una compra.</h2>
+          <p class="mt-5 text-lg leading-8 text-coffee-700 dark:text-coffee-100">
+            Estas respuestas resumen los aspectos básicos de una operación comercial internacional de café.
+          </p>
+        </div>
+
+        <div class="fade-section mt-12 space-y-4">
+          <div class="faq-item rounded-3xl border border-coffee-200 bg-white shadow-sm dark:border-white/10 dark:bg-white/10">
+            <button class="faq-button flex w-full items-center justify-between gap-5 px-6 py-5 text-left" aria-expanded="false">
+              <span class="text-lg font-black text-coffee-900 dark:text-white">¿Qué tipos de café se pueden exportar?</span>
+              <span class="faq-icon text-2xl font-black text-coffee-600 dark:text-coffee-300">+</span>
+            </button>
+            <div class="faq-content px-6">
+              <p class="pb-6 leading-7 text-coffee-700 dark:text-coffee-100">
+                Se pueden gestionar ofertas de café verde, café tostado y microlotes especiales, según disponibilidad, perfil requerido y condiciones comerciales. La selección depende del volumen, el destino y las especificaciones del comprador.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-3xl border border-coffee-200 bg-white shadow-sm dark:border-white/10 dark:bg-white/10">
+            <button class="faq-button flex w-full items-center justify-between gap-5 px-6 py-5 text-left" aria-expanded="false">
+              <span class="text-lg font-black text-coffee-900 dark:text-white">¿Puedo solicitar muestras antes de comprar?</span>
+              <span class="faq-icon text-2xl font-black text-coffee-600 dark:text-coffee-300">+</span>
+            </button>
+            <div class="faq-content px-6">
+              <p class="pb-6 leading-7 text-coffee-700 dark:text-coffee-100">
+                Sí. Las muestras permiten validar perfil de taza, proceso y consistencia antes de avanzar hacia una orden comercial. La disponibilidad se confirma según el lote y las condiciones logísticas del país de destino.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-3xl border border-coffee-200 bg-white shadow-sm dark:border-white/10 dark:bg-white/10">
+            <button class="faq-button flex w-full items-center justify-between gap-5 px-6 py-5 text-left" aria-expanded="false">
+              <span class="text-lg font-black text-coffee-900 dark:text-white">¿Manejan documentación de exportación?</span>
+              <span class="faq-icon text-2xl font-black text-coffee-600 dark:text-coffee-300">+</span>
+            </button>
+            <div class="faq-content px-6">
+              <p class="pb-6 leading-7 text-coffee-700 dark:text-coffee-100">
+                El proceso contempla acompañamiento en la coordinación documental y logística, incluyendo información comercial del lote, empaque, despacho y requerimientos propios de la operación. Los documentos específicos dependen del destino y del tipo de producto.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item rounded-3xl border border-coffee-200 bg-white shadow-sm dark:border-white/10 dark:bg-white/10">
+            <button class="faq-button flex w-full items-center justify-between gap-5 px-6 py-5 text-left" aria-expanded="false">
+              <span class="text-lg font-black text-coffee-900 dark:text-white">¿Cómo inicio una cotización?</span>
+              <span class="faq-icon text-2xl font-black text-coffee-600 dark:text-coffee-300">+</span>
+            </button>
+            <div class="faq-content px-6">
+              <p class="pb-6 leading-7 text-coffee-700 dark:text-coffee-100">
+                Puede iniciar la conversación por WhatsApp indicando país de destino, tipo de café, volumen aproximado y perfil deseado. Con esa información se estructura una propuesta inicial alineada con sus necesidades comerciales.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacto" class="border-t border-coffee-200 bg-coffee-900 px-5 py-12 text-coffee-50 dark:border-white/10 lg:px-8">
+    <div class="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="footer-logo flex h-11 w-11 items-center justify-center rounded-2xl bg-coffee-400 text-xl">☕</span>
+          <div>
+            <p class="text-lg font-black">Café Origen Selecto</p>
+            <p class="footer-muted text-sm text-coffee-200">Exportación de café colombiano</p>
+          </div>
+        </div>
+        <p class="footer-muted mt-5 max-w-xl leading-7 text-coffee-200">
+          Calidad, trazabilidad y gestión comercial para conectar el café colombiano con compradores internacionales.
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-4 text-sm font-bold md:items-end">
+        <div class="flex gap-4">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="transition hover:text-coffee-300">Instagram</a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="transition hover:text-coffee-300">Facebook</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="transition hover:text-coffee-300">LinkedIn</a>
+        </div>
+        <p class="footer-muted text-coffee-300">© <span id="year"></span> Café Origen Selecto. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/573168816578" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl shadow-black/25 transition hover:-translate-y-1 hover:scale-105" aria-label="Abrir chat de WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+      <path d="M16.03 3.2A12.73 12.73 0 0 0 5.2 22.64L3.5 28.8l6.31-1.66A12.72 12.72 0 1 0 16.03 3.2Zm0 23.27a10.55 10.55 0 0 1-5.38-1.47l-.39-.23-3.74.98 1-3.64-.25-.38a10.54 10.54 0 1 1 8.76 4.74Zm5.78-7.89c-.32-.16-1.88-.93-2.17-1.04-.29-.1-.5-.16-.71.16-.21.32-.82 1.04-1.01 1.25-.18.21-.37.24-.69.08-.32-.16-1.34-.49-2.55-1.57-.94-.84-1.58-1.88-1.77-2.2-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.18.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.71-1.72-.98-2.36-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.67s1.15 3.1 1.31 3.31c.16.21 2.26 3.45 5.47 4.84.76.33 1.36.53 1.83.68.77.24 1.47.21 2.02.13.62-.09 1.88-.77 2.15-1.52.27-.74.27-1.38.19-1.52-.08-.13-.29-.21-.61-.37Z"/>
+    </svg>
+  </a>
+
+  <script>
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function updateThemeIcon() {
+      const themeText = document.getElementById('themeText');
+      const isDark = root.classList.contains('dark');
+      themeIcon.textContent = isDark ? '☀️' : '🌙';
+      if (themeText) themeText.textContent = isDark ? 'Modo claro' : 'Modo oscuro';
+    }
+
+    updateThemeIcon();
+
+    themeToggle.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+      updateThemeIcon();
+    });
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    document.querySelectorAll('.faq-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.faq-item');
+        const content = item.querySelector('.faq-content');
+        const icon = item.querySelector('.faq-icon');
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+        document.querySelectorAll('.faq-item').forEach((otherItem) => {
+          const otherButton = otherItem.querySelector('.faq-button');
+          const otherContent = otherItem.querySelector('.faq-content');
+          const otherIcon = otherItem.querySelector('.faq-icon');
+
+          otherButton.setAttribute('aria-expanded', 'false');
+          otherContent.style.maxHeight = null;
+          otherIcon.textContent = '+';
+        });
+
+        if (!isOpen) {
+          button.setAttribute('aria-expanded', 'true');
+          content.style.maxHeight = content.scrollHeight + 'px';
+          icon.textContent = '−';
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.16
+    });
+
+    document.querySelectorAll('.fade-section').forEach((section) => {
+      observer.observe(section);
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
